@@ -11,7 +11,6 @@ function getComputerChoice() {
     return ("scissors");
   }
 }
-console.log(`The computer chose: ${getComputerChoice()}`);
 
 function getHumanChoice() {
   let humanChoice;
@@ -26,81 +25,58 @@ function getHumanChoice() {
   }
 return humanChoice;
 }
-console.log(`You chose: ${getHumanChoice()}`);
 
 function playRound(humanChoice, computerChoice){
   if (humanChoice == "rock") {
     if (computerChoice == "rock") {
-      console.log("It's a tie! Rock and Rock are equally matched!");
+      alert("It's a tie! The computer chose rock!");
     } else if (computerChoice == "paper") {
-      console.log("You lose! Paper beats Rock!");
+      alert("You lose! The computer chose paper!");
       computerScore ++;
     } else {
-      console.log("You win! Rock beats Scissors!");
+      alert("You win! The computer chose scissors!");
       humanScore ++;
     }
   } else if (humanChoice == "paper") {
     if (computerChoice == "rock") {
-      console.log("You win! Paper beats Rock!");
+      alert("You win! The computer chose rock!");
       humanScore ++
     } else if (computerChoice == "paper") {
-      console.log("It's a tie! Paper and Paper are equally matched!");
+      alert("It's a tie! The computer chose paper!");
     } else {
-      console.log("You lose! Scissors beats Paper!");
+      alert("You lose! The computer chose scissors!");
       computerScore ++;
     }
   } else {
     if (computerChoice == "rock") {
-      console.log("You lose! Rock beats Scissors!");
+      alert("You lose! The computer chose rock!");
       computerScore ++;
     } else if (computerChoice == "paper") {
-      console.log("You win! Scissors beats Paper!");
+      alert("You win! The computer chose paper!");
       humanScore ++;
     } else {
-      console.log("It's a tie! Scissors and Scissors are equally matched!");
+      alert("It's a tie! The computer chose scissors!");
     }
   }
 }
 
-// BEGIN function named playRound(humanChoice, computerChoice)
-  // IF humanChoice is "rock" and
-    // IF computerChoice is "rock"
-      // PRINT "It's a tie! Rock and Rock are equally matched!"
-    // ELSE IF computerChoice is "paper"
-      // PRINT "You lose! Paper beats Rock!"
-      // INCREMENT computerScore by 1
-    // ELSE computerChoice is "scissors"
-      // PRINT "You win! Rock beats Scissors!"
-      // INCREMENT humanScore by 1
-  // ELSE IF humanChoice is "paper" and
-    // IF computerChoice is "rock"
-      // PRINT "You win! Paper beats Rock!"
-      // INCREMENT humanScore by 1
-    // ELSE IF computerChoice is "paper"
-      // PRINT "It's a tie! Paper beats Paper are equally matched!"
-    // ELSE computerChoice is "scissors"
-      // PRINT "You lose! Scissors beats Paper!"
-      // INCREMENT computerScore by 1
-  // ELSE humanChoice is "scissors" and
-    // IF computerChoice is "rock"
-      // PRINT "You lose! Rock beats Scissors!"
-      // INCREMENT computerScore by 1
-    // ELSE IF computerChoice is "paper"
-      // PRINT "You win! Scissors beats Paper!"
-      // INCREMENT humanScore by 1
-    // ELSE computerChoice is "scissors"
-      // PRINT "It's a tie! Scissors and Scissors are evenly matched!"
-// END playRound
 
-// BEGIN function named playGame
-  // INIT variable named humanScore as 0
-  // INIT variable named computerScore as 0
+function playGame() {
+  for (let counter = 0; counter < 5; counter ++){
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+  }
+  alert(`The computer's score is ${computerScore}.`);
+  alert(`Your score is ${humanScore}.`);
+  if (computerScore > humanScore) {
+    alert("You lost!");
+  } else if (computerScore < humanScore) {
+    alert("You won!");
+  } else {
+    alert("It's a tie!")
+  }
+}
 
-  // FOR five rounds
-    // INIT constant humanSelection with getHumanChoice retun value
-    // INIT constant computerSelection with getComputerChoice return value
-
-    // CALL playRound with humanChoice and computerChoice parameters from the getHumanChoice and getComputerChoice functions
-
-// END playGame
+playGame()
 
