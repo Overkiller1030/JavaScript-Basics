@@ -1,30 +1,29 @@
-console.log("Hello World!")
+function getComputerChoice() {
+  let randomNumber = (Math.floor(Math.random() * 3) + 1);
+  if(randomNumber === 1){ 
+    return ("rock");
+  } else if (randomNumber === 2) {
+    return ("paper");
+  } else {
+    return ("scissors");
+  }
+}
+console.log(`The computer chose: ${getComputerChoice()}`);
 
-// BEGIN function named getComputerChoice
-  // SET variable named randomNumber THAT
-  // COMPUTES a random integer number between 1 and 3
-  // IF randomNumber is 1 THEN
-    // RETURN "rock"
-  // ELSE IF randomNumber is 2 THEN
-    // RETURN "paper"
-  // ELSE 
-    // RETRUN "scissors"
-// END getComputerChoice
-
-// BEGIN function named getHumanChoice
-  // SET variable named humanChoice THAT
-  // OBTAINS user input
-  // NORMALIZE user input (change answer to lowercase and remove spaces)
-
-  // WHILE humanChoice is invlaid
-    // DISPLAY prompt telling user to enter "rock", "paper", or "scissors"
-    // IF response is valid
-      // INIT humanChoice with prompt string and
-      // BREAK out of the loop
-    // ELSE
-      // PRINT that the string was invalid
-  // RETRUN humanChoice
-// END getHumanScore
+function getHumanChoice() {
+  let humanChoice
+  while(true){
+    humanChoice = prompt("Enter 'rock', 'paper', or 'scissors'.");
+    humanChoice = humanChoice.toLowerCase();
+    if((humanChoice != "rock") && (humanChoice != "paper") && (humanChoice != "scissors")) {
+      alert("That is an invalid answer!");
+    } else {
+      break;
+    }
+  }
+return humanChoice;
+}
+console.log(getHumanChoice());
 
 // BEGIN function named playRound(humanChoice, computerChoice)
   // IF humanChoice is "rock" and
